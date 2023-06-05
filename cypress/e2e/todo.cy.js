@@ -22,20 +22,23 @@ describe("Todo Tests", () => {
 
 	it("Check if added todo item exists", () => {
 		// Check the text of the new todo
-		cy.get(".todo-list li").last().should("have.text", "Walk the dog");
+		cy.get(".todo-list li label").last().should("have.text", "Walk the dog");
 
     // Assert that there are now 3 todos
     cy.get(".todo-list li").should("have.length", 3);
 	});
 
+  it("Check walk the dog", () => {
+    
+  });
 
 });
 
 /**
  * Test Cases
- * [ ] Add todo item
- * [ ] Check walk the dog
- * [ ] Assert that there are 3 items
+ * [/] Add todo item
+ * [/] Check walk the dog
+ * [/] Assert that there are 3 items
  * [ ] Show all/active/completed
  * [ ] Clear completed
  * [ ] Check all
