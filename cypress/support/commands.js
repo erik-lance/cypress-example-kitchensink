@@ -39,6 +39,15 @@ Cypress.Commands.add("getTask", (index) => {
 	return cy.getTasks().eq(index);
 });
 
+Cypress.Commands.add("checkTask", (index) => {
+    cy.getTask(index).find(".toggle").check();
+    cy.getTask(index).should("have.class", "completed");
+});
+
 Cypress.Commands.add("getFilters", () => {
     return cy.get(".filters li a");
+});
+
+Cypress.Commands.add("getClearCompleted", () => {
+    return cy.get(".clear-completed");
 });

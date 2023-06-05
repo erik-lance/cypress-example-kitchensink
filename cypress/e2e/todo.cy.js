@@ -40,8 +40,7 @@ describe("Todo Tests", () => {
 
   it("Show active", () => {
     // First check the last item
-    cy.getTasks().last().find(".toggle").check();
-    cy.getTasks().last().should("have.class", "completed");
+    cy.checkTask(2);
 
     // Assert that there are now 2 todos
     cy.getFilters().contains("Active").click();
@@ -50,12 +49,17 @@ describe("Todo Tests", () => {
 
   it("Show completed", () => {
     // First check the last item
-    cy.getTasks().last().find(".toggle").check();
-    cy.getTasks().last().should("have.class", "completed");
+    cy.checkTask(2);
 
     // Assert that there are now 1 todos
     cy.getFilters().contains("Completed").click();
     cy.getTasks().should("have.length", 1);
+  });
+
+  it("Clear completed", () => {
+    // First check the last item
+    cy.checkTask(2);
+
   });
 
 });
@@ -65,7 +69,7 @@ describe("Todo Tests", () => {
  * [/] Add todo item
  * [/] Check walk the dog
  * [/] Assert that there are 3 items
- * [ ] Show all/active/completed
+ * [/] Show all/active/completed
  * [ ] Clear completed
  * [ ] Check all
  */
