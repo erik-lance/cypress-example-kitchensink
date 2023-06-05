@@ -9,5 +9,5 @@ describe('Test connection', () => {
 
   it('Visit Misc Site', () => {
     cy.visit(Cypress.env('commandMisc'))
-  }
+  })
 })
