@@ -66,7 +66,7 @@ describe("Todo Tests", () => {
     cy.getTasks().should("have.length", 2);
   });
 
-  it.only("Check all tasks", () => {
+  it("Check all tasks", () => {
     cy.getToggleAll().click({force: true})
 
     // Check that all tasks are completed
@@ -75,4 +75,18 @@ describe("Todo Tests", () => {
     cy.getTask(2).should("have.class", "completed");
   });
 
+});
+
+describe("Coupon Test", () => {
+  beforeEach(() => {
+    cy.visit(Cypress.env("commandActions"));
+  });
+
+  it("Check coupon", () => {
+    cy.getCouponInput().type("CYPR3SS");
+    cy.getCouponSubmit().click();
+
+    // Finds "Your form has been submitted!" text
+    cy.getSubmitMessage().should("have.text", "Your form has been submitted!");
+  });
 });

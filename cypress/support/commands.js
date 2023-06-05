@@ -55,3 +55,16 @@ Cypress.Commands.add("getToggleAll", () => {
 Cypress.Commands.add("getClearCompleted", () => {
     return cy.get(".clear-completed");
 });
+
+Cypress.Commands.add("getCouponInput", () => {
+    return cy.get("#couponCode1");
+});
+
+Cypress.Commands.add("getCouponSubmit", () => {
+    // Gets parent of parent of input and then finds the button
+    return cy.get('.action-form > .btn')
+});
+
+Cypress.Commands.add("getSubmitMessage", () => {
+    return cy.get('.well > p')
+});
