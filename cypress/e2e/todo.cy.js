@@ -60,6 +60,10 @@ describe("Todo Tests", () => {
     // First check the last item
     cy.checkTask(2);
 
+    cy.getClearCompleted().click();
+
+    // Assert that there are now 2 todos
+    cy.getTasks().should("have.length", 2);
   });
 
 });
@@ -70,6 +74,6 @@ describe("Todo Tests", () => {
  * [/] Check walk the dog
  * [/] Assert that there are 3 items
  * [/] Show all/active/completed
- * [ ] Clear completed
+ * [/] Clear completed
  * [ ] Check all
  */
