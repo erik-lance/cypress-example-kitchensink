@@ -28,5 +28,15 @@ describe("Todo Tests", () => {
     cy.get(".todo-list li").should("have.length", 3);
 	});
 
-  
+
 });
+
+/**
+ * Test Cases
+ * [ ] Add todo item
+ * [ ] Check walk the dog
+ * [ ] Assert that there are 3 items
+ * [ ] Show all/active/completed
+ * [ ] Clear completed
+ * [ ] Check all
+ */
