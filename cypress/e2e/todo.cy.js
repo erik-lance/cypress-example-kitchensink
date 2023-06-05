@@ -29,7 +29,8 @@ describe("Todo Tests", () => {
 	});
 
   it("Check walk the dog", () => {
-    
+    cy.get(".todo-list li input").last().check();
+    cy.get(".todo-list li").last().should("have.class", "completed");
   });
 
 });
