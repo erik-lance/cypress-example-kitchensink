@@ -38,3 +38,7 @@ Cypress.Commands.add("getTasks", () => {
 Cypress.Commands.add("getTask", (index) => {
 	return cy.getTasks().eq(index);
 });
+
+Cypress.Commands.add("getFilters", () => {
+    return cy.get(".filters li a");
+});

@@ -33,6 +33,31 @@ describe("Todo Tests", () => {
     cy.getTasks().last().should("have.class", "completed");
   });
 
+  it("Show all", () => {
+    cy.getFilters().contains("All").click();
+    cy.getTasks().should("have.length", 3);
+  });
+
+  it("Show active", () => {
+    // First check the last item
+    cy.getTasks().last().find(".toggle").check();
+    cy.getTasks().last().should("have.class", "completed");
+
+    // Assert that there are now 2 todos
+    cy.getFilters().contains("Active").click();
+    cy.getTasks().should("have.length", 2);
+  });
+
+  it("Show completed", () => {
+    // First check the last item
+    cy.getTasks().last().find(".toggle").check();
+    cy.getTasks().last().should("have.class", "completed");
+
+    // Assert that there are now 1 todos
+    cy.getFilters().contains("Completed").click();
+    cy.getTasks().should("have.length", 1);
+  });
+
 });
 
 /**
