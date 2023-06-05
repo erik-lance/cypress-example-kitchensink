@@ -66,14 +66,13 @@ describe("Todo Tests", () => {
     cy.getTasks().should("have.length", 2);
   });
 
-});
+  it.only("Check all tasks", () => {
+    cy.getToggleAll().click({force: true})
 
-/**
- * Test Cases
- * [/] Add todo item
- * [/] Check walk the dog
- * [/] Assert that there are 3 items
- * [/] Show all/active/completed
- * [/] Clear completed
- * [ ] Check all
- */
+    // Check that all tasks are completed
+    cy.getTask(0).should("have.class", "completed");
+    cy.getTask(1).should("have.class", "completed");
+    cy.getTask(2).should("have.class", "completed");
+  });
+
+});

@@ -48,6 +48,10 @@ Cypress.Commands.add("getFilters", () => {
     return cy.get(".filters li a");
 });
 
+Cypress.Commands.add("getToggleAll", () => {
+    return cy.get("#toggle-all");
+});
+
 Cypress.Commands.add("getClearCompleted", () => {
     return cy.get(".clear-completed");
 });
