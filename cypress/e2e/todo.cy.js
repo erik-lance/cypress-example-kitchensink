@@ -33,6 +33,15 @@ describe("Todo Tests", () => {
     cy.getTasks().last().should("have.class", "completed");
   });
 
+  it("Check all tasks", () => {
+    cy.getToggleAll().click({force: true})
+
+    // Check that all tasks are completed
+    cy.getTask(0).should("have.class", "completed");
+    cy.getTask(1).should("have.class", "completed");
+    cy.getTask(2).should("have.class", "completed");
+  });
+
   it("Show all", () => {
     cy.getFilters().contains("All").click();
     cy.getTasks().should("have.length", 3);
@@ -66,14 +75,7 @@ describe("Todo Tests", () => {
     cy.getTasks().should("have.length", 2);
   });
 
-  it("Check all tasks", () => {
-    cy.getToggleAll().click({force: true})
-
-    // Check that all tasks are completed
-    cy.getTask(0).should("have.class", "completed");
-    cy.getTask(1).should("have.class", "completed");
-    cy.getTask(2).should("have.class", "completed");
-  });
+  
 
 });
 
