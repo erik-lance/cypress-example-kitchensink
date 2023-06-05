@@ -68,3 +68,11 @@ Cypress.Commands.add("getCouponSubmit", () => {
 Cypress.Commands.add("getSubmitMessage", () => {
     return cy.get('.well > p')
 });
+
+Cypress.Commands.add("getMiscTable", () => {
+    return cy.get('.misc-table')
+});
+
+Cypress.Commands.add("getMiscTableRow", (index) => {
+    return cy.getMiscTable().find("tr").eq(index);
+});

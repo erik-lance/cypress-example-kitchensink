@@ -90,3 +90,28 @@ describe("Coupon Test", () => {
     cy.getSubmitMessage().should("have.text", "Your form has been submitted!");
   });
 });
+
+describe("Misc Test", () => {
+  beforeEach(() => {
+    cy.visit(Cypress.env("commandMisc"));
+
+    //Assert that url is correct
+    cy.url().should("include", "misc");
+  });
+
+  it("Make table blue", () => {
+    // Check if table exists
+    cy.getMiscTable().should("exist");
+
+    // Click a row to make it blue
+    cy.getMiscTableRow(1).click();
+
+    // Check if BG color of child tag is blue
+    cy.getMiscTableRow(1).children().should("have.css", "background-color", "rgb(217, 237, 247)");
+
+    // Check if other rows are not blue
+    cy.getMiscTableRow(0).children().should("not.have.css", "background-color", "rgb(217, 237, 247)");
+    cy.getMiscTableRow(2).children().should("not.have.css", "background-color", "rgb(217, 237, 247)");
+    cy.getMiscTableRow(3).children().should("not.have.css", "background-color", "rgb(217, 237, 247)");
+  });
+});
