@@ -23,3 +23,18 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add("getDataByTestId", (testId) => {
+	return cy.get(`[data-test=${testId}]`);
+});
+
+Cypress.Commands.add("getPrompt", () => {
+	return cy.getDataByTestId("new-todo");
+});
+
+Cypress.Commands.add("getTasks", () => {
+	return cy.get(".todo-list li");
+});
+
+Cypress.Commands.add("getTask", (index) => {
+	return cy.getTasks().eq(index);
+});

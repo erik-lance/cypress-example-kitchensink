@@ -15,22 +15,22 @@ describe("Test connection", () => {
 describe("Todo Tests", () => {
 	beforeEach(() => {
 		cy.visit(Cypress.env("todo"));
-		cy.get(".todo-list li").should("have.length", 2);
+		cy.getTasks().should("have.length", 2);
 
-    cy.getDataByTestId("new-todo").type("Walk the dog{enter}");
+    cy.getPrompt().type("Walk the dog{enter}");
 	});
 
 	it("Check if added todo item exists", () => {
 		// Check the text of the new todo
-		cy.get(".todo-list li label").last().should("have.text", "Walk the dog");
+    cy.getTasks().last().find("label").should("have.text", "Walk the dog");
 
     // Assert that there are now 3 todos
-    cy.get(".todo-list li").should("have.length", 3);
+    cy.getTasks().should("have.length", 3);
 	});
 
   it("Check walk the dog", () => {
-    cy.get(".todo-list li input").last().check();
-    cy.get(".todo-list li").last().should("have.class", "completed");
+    cy.getTasks().last().find(".toggle").check();
+    cy.getTasks().last().should("have.class", "completed");
   });
 
 });
