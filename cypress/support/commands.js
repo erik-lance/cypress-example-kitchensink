@@ -24,55 +24,55 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 Cypress.Commands.add("getDataByTestId", (testId) => {
-	return cy.get(`[data-test=${testId}]`);
+  return cy.get(`[data-test=${testId}]`);
 });
 
 Cypress.Commands.add("getPrompt", () => {
-	return cy.getDataByTestId("new-todo");
+  return cy.getDataByTestId("new-todo");
 });
 
 Cypress.Commands.add("getTasks", () => {
-	return cy.getDataByTestId("task")
+  return cy.getDataByTestId("task")
 });
 
 Cypress.Commands.add("getTask", (index) => {
-	return cy.getTasks().eq(index);
+  return cy.getTasks().eq(index);
 });
 
 Cypress.Commands.add("checkTask", (index) => {
-    cy.getDataByTestId("taskCheckbox").eq(index).click();
-    cy.getTask(index).should("have.class", "completed");
+  cy.getDataByTestId("taskCheckbox").eq(index).click();
+  cy.getTask(index).should("have.class", "completed");
 });
 
 Cypress.Commands.add("getFilters", () => {
-    return cy.getDataByTestId("filterOption");
+  return cy.getDataByTestId("filterOption");
 });
 
 Cypress.Commands.add("getToggleAll", () => {
-    return cy.getDataByTestId("checkAll");
+  return cy.getDataByTestId("checkAll");
 });
 
 Cypress.Commands.add("getClearCompleted", () => {
-    return cy.getDataByTestId("filterClearCompleted");
+  return cy.getDataByTestId("filterClearCompleted");
 });
 
 Cypress.Commands.add("getCouponInput", () => {
-    return cy.getDataByTestId("couponInput")
+  return cy.getDataByTestId("couponInput")
 });
 
 Cypress.Commands.add("getCouponSubmit", () => {
-    // Gets parent of parent of input and then finds the button
-    return cy.getDataByTestId("couponSubmit")
+  // Gets parent of parent of input and then finds the button
+  return cy.getDataByTestId("couponSubmit")
 });
 
 Cypress.Commands.add("getSubmitMessage", () => {
-    return cy.getDataByTestId("couponMessage")
+  return cy.getDataByTestId("couponMessage")
 });
 
 Cypress.Commands.add("getMiscTable", () => {
-    return cy.getDataByTestId("table")
+  return cy.getDataByTestId("table")
 });
 
 Cypress.Commands.add("getMiscTableRow", (index) => {
-    return cy.getDataByTestId("tableRow").eq(index)
+  return cy.getDataByTestId("tableRow").eq(index)
 });
