@@ -67,7 +67,7 @@ $(() => {
   $('.action-form').on('submit', (e) => {
     e.preventDefault()
 
-    $('<p>Your form has been submitted!</p>')
+    $('<p data-test="couponMessage">Your form has been submitted!</p>')
     .insertAfter(e.currentTarget)
     .css('color', '#20B520')
   })

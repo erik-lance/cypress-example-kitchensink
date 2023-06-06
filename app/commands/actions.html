@@ -185,12 +185,12 @@ cy.get('.action-form').submit()
         </div>
         <div class="col-xs-5">
           <div class="well">
-            <form class="action-form">
+            <form data-test="couponForm" class="action-form">
               <div class="form-group">
                 <label for="couponCode1" val="HALFOFF">Coupon Code</label>
-                <input type="text" class="form-control" id="couponCode1">
+                <input data-test="couponInput" type="text" class="form-control" id="couponCode1">
               </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button data-test="couponSubmit" type="submit" class="btn btn-primary">Submit</button>
             </form>
           </div>
         </div>

@@ -86,20 +86,20 @@ cy.get('.misc-table').within(() => {
         </div>
         <div class="col-xs-5">
           <div class="well">
-            <table class="table table-bordered misc-table">
+            <table data-test="table" class="table table-bordered misc-table">
               <thead>
-                <tr>
+                <tr data-test="tableRow">
                   <th>Table</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
+                <tr data-test="tableRow">
                   <td>User: Cheryl</td>
                 </tr>
-                <tr>
+                <tr data-test="tableRow">
                   <td>User: Charles</td>
                 </tr>
-                <tr>
+                <tr data-test="tableRow">
                   <td>User: Darryl</td>
                 </tr>
               </tbody>

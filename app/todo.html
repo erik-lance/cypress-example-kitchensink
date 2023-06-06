@@ -75,7 +75,7 @@
           <input class="new-todo" placeholder="What needs to be done?" data-test="new-todo" autofocus>
         </header>
         <section class="main">
-          <input id="toggle-all" class="toggle-all" type="checkbox">
+          <input data-test="checkAll" id="toggle-all" class="toggle-all" type="checkbox">
           <label for="toggle-all">Mark all as complete</label>
           <ul class="todo-list"></ul>
         </section>
@@ -83,16 +83,16 @@
           <span class="todo-count"></span>
           <ul class="filters">
             <li>
-              <a href="#/" class="selected">All</a>
+              <a data-test="filterOption" href="#/" class="selected">All</a>
             </li>
             <li>
-              <a href="#/active">Active</a>
+              <a data-test="filterOption" href="#/active">Active</a>
             </li>
             <li>
-              <a href="#/completed">Completed</a>
+              <a data-test="filterOption" href="#/completed">Completed</a>
             </li>
           </ul>
-          <button class="todo-button clear-completed">Clear completed</button>
+          <button data-test="filterClearCompleted" class="todo-button clear-completed">Clear completed</button>
         </footer>
       </div>
       <footer class="info">

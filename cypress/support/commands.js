@@ -32,7 +32,7 @@ Cypress.Commands.add("getPrompt", () => {
 });
 
 Cypress.Commands.add("getTasks", () => {
-	return cy.get(".todo-list li");
+	return cy.getDataByTestId("task")
 });
 
 Cypress.Commands.add("getTask", (index) => {
@@ -40,39 +40,39 @@ Cypress.Commands.add("getTask", (index) => {
 });
 
 Cypress.Commands.add("checkTask", (index) => {
-    cy.getTask(index).find(".toggle").check();
+    cy.getDataByTestId("taskCheckbox").eq(index).click();
     cy.getTask(index).should("have.class", "completed");
 });
 
 Cypress.Commands.add("getFilters", () => {
-    return cy.get(".filters li a");
+    return cy.getDataByTestId("filterOption");
 });
 
 Cypress.Commands.add("getToggleAll", () => {
-    return cy.get("#toggle-all");
+    return cy.getDataByTestId("checkAll");
 });
 
 Cypress.Commands.add("getClearCompleted", () => {
-    return cy.get(".clear-completed");
+    return cy.getDataByTestId("filterClearCompleted");
 });
 
 Cypress.Commands.add("getCouponInput", () => {
-    return cy.get("#couponCode1");
+    return cy.getDataByTestId("couponInput")
 });
 
 Cypress.Commands.add("getCouponSubmit", () => {
     // Gets parent of parent of input and then finds the button
-    return cy.get('.action-form > .btn')
+    return cy.getDataByTestId("couponSubmit")
 });
 
 Cypress.Commands.add("getSubmitMessage", () => {
-    return cy.get('.well > p')
+    return cy.getDataByTestId("couponMessage")
 });
 
 Cypress.Commands.add("getMiscTable", () => {
-    return cy.get('.misc-table')
+    return cy.getDataByTestId("table")
 });
 
 Cypress.Commands.add("getMiscTableRow", (index) => {
-    return cy.getMiscTable().find("tr").eq(index);
+    return cy.getDataByTestId("tableRow").eq(index)
 });
